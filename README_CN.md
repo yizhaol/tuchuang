@@ -1,19 +1,9 @@
 # ImageFlow
 
-<div align="center">
-
-[![中文文档](https://img.shields.io/badge/-%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3-6366f1?logo=readthedocs&style=flat-square&logoColor=white)](README_CN.md)
-|
-[![部署说明](https://img.shields.io/badge/-%E9%83%A8%E7%BD%B2%E8%AF%B4%E6%98%8E-6366f1?logo=docker&style=flat-square&logoColor=white)](https://catcat.blog/imageflow-install.html)
-|
-[![贡献指南](https://img.shields.io/badge/-%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97-6366f1?logo=github&style=flat-square&logoColor=white)](contributing.md)
-|
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/Yuri-NagaSaki/ImageFlow)
-</div>
-
-[English](README.md) | [中文文档](README_CN.md)
+**原作者： catcat.blog 团队**
 
 ImageFlow 是一个全栈图片管理平台，能够自动为不同设备和浏览器优化图片，同时提供强大的过滤和分发功能。
+
 
 ## ✨ 功能特性
 
@@ -42,59 +32,12 @@ ImageFlow 是一个全栈图片管理平台，能够自动为不同设备和浏�
 - **深色模式**: 适应用户偏好的精美 UI
 - **响应式设计**: 在所有设备尺寸上完美工作
 
-## 🏃‍♂️ 快速开始
-
-### 使用 Docker（推荐）
-
-```bash
-# 克隆仓库
-git clone https://github.com/Yuri-NagaSaki/ImageFlow.git
-cd ImageFlow
-
-# 使用 Docker Compose 启动
-docker-compose up -d
-
-# 你的 ImageFlow 实例现在运行在 http://localhost:8080
-```
-
-### 手动安装
-
-#### 环境要求
-- **Go 1.22+**
-- **Node.js 18+**
-- **libvips**（用于图片处理）
-- **Redis**（可选但推荐）
-
-#### 后端设置
-
-```bash
-# 安装 Go 依赖
-go mod tidy
-
-# 配置环境
-cp .env.example .env
-# 编辑 .env 文件设置你的配置
-
-# 构建并运行
-go build -o imageflow
-./imageflow
-```
-
-#### 前端设置
-
-```bash
-cd frontend
-
-# 安装依赖
-npm install
-
-# 开发模式
-npm run dev
-
-# 生产构建
-npm run build
-```
-
+## ✨ 使用方法
+- **拉取代码**: 从github下载代码
+- **配置.env文件**: 修改.env文件调整参数
+- **运行服务**: 运行docker-compose.yaml从dockerhub拉去镜像部署，运行docker-compose-build.yaml在本地进行构建运行
+- **访问**: 访问IP:8686即可进入页面
+- 
 ## 🔧 配置说明
 
 在项目根目录创建 `.env` 文件：
@@ -246,14 +189,5 @@ ImageFlow/
 - **Fiber** - 受 Express 启发的 Go Web 框架
 - **Tailwind CSS** - 实用优先的 CSS 框架
 
-## 📞 支持
-
-- 📖 [文档](API_USAGE_GUIDE.md)
-- 🐛 [报告问题](https://github.com/Yuri-NagaSaki/ImageFlow/issues)
-- 💬 [讨论](https://github.com/Yuri-NagaSaki/ImageFlow/discussions)
 
 ---
-
-**由 catcat.blog 团队用 ❤️ 制作**
-
-*立即转换你的图片工作流程！*
