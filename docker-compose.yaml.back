@@ -1,6 +1,6 @@
 services:
   images:
-    image: soyorins/imageflow
+    image: crpi-j030d014iwy370a0.cn-hongkong.personal.cr.aliyuncs.com/repentdocker/tuchuang:1.0
     ports:
       - "8686:8686"
     environment:

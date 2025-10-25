@@ -1,8 +1,6 @@
 services:
-  imageflow:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  images:
+    image: crpi-j030d014iwy370a0.cn-hongkong.personal.cr.aliyuncs.com/repentdocker/tuchuang:1.0
     ports:
       - "8686:8686"
     environment:
@@ -15,16 +13,16 @@ services:
       - S3_SECRET_KEY=${S3_SECRET_KEY:-}
       - S3_BUCKET=${S3_BUCKET:-}
       - CUSTOM_DOMAIN=${CUSTOM_DOMAIN:-}
+      - MAX_UPLOAD_COUNT=${MAX_UPLOAD_COUNT:-20}
+      - IMAGE_QUALITY=${IMAGE_QUALITY:-80}
+      - WORKER_THREADS=${WORKER_THREADS:-4}
+      - SPEED=${SPEED:-5}
       - METADATA_STORE_TYPE=${METADATA_STORE_TYPE:-redis}
       - REDIS_HOST=${REDIS_HOST:-localhost}
       - REDIS_PORT=${REDIS_PORT:-6379}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-}
       - REDIS_DB=${REDIS_DB:-0}
       - REDIS_TLS_ENABLED=${REDIS_TLS_ENABLED:-false}
-      - MAX_UPLOAD_COUNT=${MAX_UPLOAD_COUNT:-20}
-      - IMAGE_QUALITY=${IMAGE_QUALITY:-80}
-      - WORKER_THREADS=${WORKER_THREADS:-4}
-      - SPEED=${SPEED:-5}
       - DEBUG_MODE=${DEBUG_MODE:-false}
     depends_on:
       - redis
@@ -37,6 +35,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+      start_period: 10s
 
   redis:
     image: redis:alpine
@@ -50,6 +49,7 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
+      start_period: 10s
 
 volumes:
   redis_data:
